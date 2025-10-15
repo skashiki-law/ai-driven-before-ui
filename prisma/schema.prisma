@@ -18,5 +18,34 @@ model Post {
   id Int @id @default(autoincrement())
   title String
   description String
+  content String?
+  imageUrl String?
+  category String?
+  tags String[]
   data DateTime @default(now())
+  authorId String?
+  favorites Favorite[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id String @id @default(cuid())
+  clerkId String @unique
+  email String
+  name String?
+  favorites Favorite[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Favorite {
+  id Int @id @default(autoincrement())
+  userId String
+  postId Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
 }
