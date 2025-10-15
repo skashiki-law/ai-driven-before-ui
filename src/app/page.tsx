@@ -7,6 +7,7 @@ import PostList from "./components/PostList";
 import PostDetail from "./components/PostDetail";
 import PostForm from "./components/PostForm";
 
+<<<<<<< HEAD
 export default function Home() {
   const [posts, setPosts] = useState<any[]>([]);
   const [selectedPost, setSelectedPost] = useState<any | null>(null);
@@ -124,3 +125,14 @@ export default function Home() {
     </div>
   );
 }
+=======
+  export default function Home() {
+    return (
+        <div className="flex justify-center items-center h-screen">
+            Hello World
+        </div>
+    );
+  }
+
+
+>>>>>>> 7f78a821552daeecdf2e5c28acb94e4a322b1be2
